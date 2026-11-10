@@ -6,6 +6,6 @@
 <script>
 fetch("url.txt?t=" + Date.now(), {cache: "no-store"})
   .then(r => r.text())
-  .then(u => { u = u.trim(); if (/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(u)) location.replace(u); else throw 0; })
+  .then(u => { u = u.trim(); if (/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(u)) location.replace(u + location.search + location.hash); else throw 0; })
   .catch(() => { document.getElementById("m").textContent = "Could not load the current link. Check ntfy or your email."; });
 </script></body></html>
